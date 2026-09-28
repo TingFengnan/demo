@@ -1,0 +1,40 @@
+#include <stdio.h>
+char* mychr(char string[],char word);
+int main ()
+{
+	char number[10]="Iloveyou";
+	char chr;
+	printf("请输入你要查找的字母。");
+	//number[10]="Iloveyou";
+	scanf("%c",&chr);
+	char *r;
+	r=mychr(number,chr);
+	if(r!=NULL){
+	printf("%c",*r);
+	}
+	else{
+		printf("查无此字");
+	}
+return 0;
+}
+char* mychr(char string[],char word)
+{
+	//int criteria=0;
+	char *p;
+	p=string;
+	char *q;
+	while(*p!='\0')
+	{
+		if(*p==word){
+			return p;
+		}
+		else{
+			p++;
+		}
+	}
+	if(*p=='\0')
+	{
+ return NULL;
+	}
+}
+
