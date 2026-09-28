@@ -1,0 +1,24 @@
+#include <stdio.h>
+int mylen(char string[]);
+int main()
+{
+	//把几个字符串的函数都写出来，先习惯运用指针。
+	 char number[10];
+	 scanf("%s",number);
+	 printf("%d",mylen(number));
+	 return 0;
+	
+}
+
+int mylen(char string[])
+{
+	char *p;
+	p=string;
+	int cnt=0;
+	while(*p!='\0'){
+		p++;
+		cnt++;
+		
+	}
+	return cnt;
+}
