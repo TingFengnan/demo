@@ -1,0 +1,27 @@
+#include <stdio.h>
+void mycat(char string[],char sring1[]);
+int main ()
+{
+	char number[10],number1[10];
+	scanf("%s %s",number,number1);
+	mycat(number,number1);
+	printf("%s",number);
+	return 0;
+}
+void mycat (char string[],char string1[])
+{
+	char*p,*q;
+//	int cnt=0;
+	p=string,q=string1;
+	while(*p!='\0')
+	{
+		p++;
+	}
+	while(*q!='\0')
+	{
+		*p=*q;
+		p++;
+		q++;
+	}
+	*p='\0';
+}
