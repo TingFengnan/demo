@@ -1,0 +1,96 @@
+#include <stdio.h>
+typedef struct Book
+{
+	char name[20];
+	int id;
+	float price;
+}Book;
+int main()
+{
+	printf("你好呀，我是你的图书查找系统，可以帮你记录书名 书号 价格哦~\n");
+	printf("我有很多的功能哦，比如输入1可以新增加一本书，输入2可以打印已经录入的全部图书哦，如果不再需要我可以输入0哦。我会和你拜拜~\n");
+	printf("经过升级，本系统增加了两个功能，如果需要删除功能请按3，如果需要修改功能请按4  O(∩_∩)O\n");
+	int criteria;
+	int num;
+	int No;
+	int cnt=0;
+	scanf("%d",&criteria);
+	Book bk[5];
+	while(criteria!=0){
+		
+	switch(criteria)
+	{
+		case 1:
+			if(cnt<6){
+			
+			printf("你现在在使用输入功能哦\n");
+			printf("请按照书名 书号 价格的格式输入给我，我会帮你保存的！\n");
+			printf("差点忘记和你说了，我最多只能存20个字符的书名，只能存放五本书，别为难我(*゜ロ゜)ノ\n");
+			scanf("%s %d %f",bk[cnt].name,&bk[cnt].id,&bk[cnt].price);
+			printf("你现在把书本存入了%d号柜子哦\n",cnt+1);
+			cnt++;
+		}
+			break;
+		case 2:
+			printf("你现在在使用输出功能哦！我会把你存放的书本全部输出给你的\n");
+			if(cnt==0)
+			{
+				printf("你现在还没有存入书本哦，O(∩_∩)O\n");
+				
+			}
+			else{
+				int cnt1=0;
+				for(cnt1=0;cnt1<cnt;cnt1++)
+				{
+					printf("我将开始输出%d号书\n",cnt1+1);
+					printf("书名%s 书号%d 价格%f\n",bk[cnt1].name,bk[cnt1].id,bk[cnt1].price);
+					
+					
+				}
+				if(cnt1==cnt){
+					printf("我已经全部输出完啦。\n");
+				}
+			}
+			break;
+			case 3:
+				
+				printf("你现在在使用删除功能哦\n");
+				printf("请输入你想删除的书号\n");
+				printf("对了，你只能删除已经录入的书，目前你录入到了%d号哦\n",cnt);
+				scanf("%d",&num);
+				if(num-1>=cnt)
+				{
+					printf("你看看你，我都说了不可以删除没有录入的图书\n");
+					
+				 } 
+				 else{
+				 	if(num==5){
+				 		cnt--;
+					 }
+					 else{
+					 	while(num-1<cnt){
+					 	 bk[num]=bk[num+1];
+					 	 num++;
+					 	 cnt--;
+						 }
+					 }
+				 }
+				 printf("好的，我已经帮你删除了%d号柜子里面的东西，不要太感谢我哦\n");
+				 break;
+		    case 4:
+		    	
+		    	printf("好的，现在你使用的是修改功能\n");
+		    	printf("请输入你想修改的号码，Σ(￣д￣；)你只能修改你已经存入的柜子哦\n");
+		    	printf("目前你录入到了%d号哦\n",cnt);
+		    	scanf("%d",&No);
+		    	printf("好的，已经锁定%d号柜子，请再次按照我们之前的格式依次输入书名 书号 价格\n感谢配合！\n");
+		    	scanf("%s %d %f",bk[No-1].name,&bk[No-1].id,&bk[No-1].price);
+		    	break;
+
+	}
+	scanf("%d",&criteria);
+	}
+		printf("不再存了吗？好吧拜拜");
+	return 0;
+	
+}
